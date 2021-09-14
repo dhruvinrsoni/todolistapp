@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "todolist-dhruvinsoni",
-    "todolist-dhruvin-alias": "todolist-dhruvinsoni",
-    "first-todo-app-f98b3": "first-todo-app-f98b3"
+    "default": "todolist-dhruvinsoni"
   }
 }

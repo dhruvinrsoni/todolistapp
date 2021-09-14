@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleTodo, removeTodo } from '../actions'
+import { toggleTodo, removeTodo, copyToClipboard, search, downloadList } from '../actions'
 import TodoList from '../components/TodoList'
 import { VisibilityFilters } from '../actions'
 console.log("containers/VisibleTodoList.js: Called.");
@@ -21,12 +21,16 @@ const getVisibleTodos = (todos, filter) => {
 }
 
 const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  searchKey: state.searchKey
 })
 
 const mapDispatchToProps = dispatch => ({
   toggleTodo: id => dispatch(toggleTodo(id)), 
-  removeTodo: id => dispatch(removeTodo(id))
+  removeTodo: id => dispatch(removeTodo(id)),
+  copyToClipboard: (id, text) => dispatch(copyToClipboard(id, text)),
+  downloadTxtFile: (statusEnabled) => dispatch(downloadList(statusEnabled)),
+  search: searchKey => dispatch(search(searchKey))
 })
 
 export default connect(
