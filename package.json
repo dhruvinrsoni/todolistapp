@@ -2,7 +2,7 @@
   "name": "my-todo-app",
   "version": "0.2.0",
   "author": "Dhruvin Soni <@dhruvinrsoni>",
-  "description": "This my-todo-app is Android Installable and available with Windows Installation distributions. ",
+  "description": "This my-todo-app is Android Installable and available with Windows Installation distributions.",
   "private": true,
   "homepage": "./",
   "dependencies": {
