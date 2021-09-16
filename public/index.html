@@ -44,14 +44,14 @@
 </body>
 <script>
   let deferredPrompt;
-  const addBtn = document.querySelector('.add-button');
+  const addBtn = document.querySelector('#install-app-button');
   addBtn.style.display = 'none';
 
-  window.addEventListener('beforeinstallprompt', (e) => {
+  window.addEventListener('beforeinstallprompt', (beforeinstallpromptevent) => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
+    beforeinstallpromptevent.preventDefault();
     // Stash the event so it can be triggered later.
-    deferredPrompt = e;
+    deferredPrompt = beforeinstallpromptevent;
     // Update UI to notify the user they can add to home screen
     addBtn.style.display = 'block';
 
@@ -62,17 +62,40 @@
       deferredPrompt.prompt();
       // Wait for the user to respond to the prompt
       deferredPrompt.userChoice.then((choiceResult) => {
+        console.log("User Response: ", choiceResult.outcome);
         if (choiceResult.outcome === 'accepted') {
-          alert("Thank You for Installing the app.");
+          //alert("Thank You for Installing the app.");
           console.log('User accepted the A2HS prompt');
+          //addBtn.removeEventListener('click', e);
         } else {
-          alert("You can install the app anytime by clicking this button.");
+          //alert("You can install the app anytime by clicking this button.");
           console.log('User dismissed the A2HS prompt');
+          //addBtn.removeEventListener('click', e);
         }
         deferredPrompt = null;
       });
     });
   });
+
+  function installApp(){
+    // hide our user interface that shows our A2HS button
+    addBtn.style.display = 'none';
+      // Show the prompt
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          //alert("Thank You for Installing the app.");
+          console.log('User accepted the A2HS prompt');
+          //addBtn.removeEventListener('click', e);
+        } else {
+          //alert("You can install the app anytime by clicking this button.");
+          console.log('User dismissed the A2HS prompt');
+          //addBtn.removeEventListener('click', e);
+        }
+        deferredPrompt = null;
+      });
+  }
 </script>
 
 </html>

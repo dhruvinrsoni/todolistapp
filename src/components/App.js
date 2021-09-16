@@ -24,7 +24,7 @@ const App = () => (
     <VisibleTodoList />
     <Footer />
 
-    <button style={{ backgroundColor: 'deepskyblue', padding: '6px' }} className="add-button">
+    <button style={{ backgroundColor: 'deepskyblue', padding: '6px' }} id="install-app-button">
       <img src={installicon} alt="Install icon" width="10" height="10"/>
       &nbsp;Install
     </button>

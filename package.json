@@ -1,6 +1,8 @@
 {
   "name": "my-todo-app",
   "version": "0.2.0",
+  "author": "Dhruvin Soni <@dhruvinrsoni>",
+  "description": "This my-todo-app is Android Installable and available with Windows Installation distributions. ",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -31,12 +33,17 @@
   },
   "build": {
     "appId": "com.loyno-mathcs.dhruvinrsoni.weatherstation.wotdevice",
+	"copyright": "Copyright © 2019 ${author}",
     "files": [
       "build/**/*",
+	  "./public/**/*",
       "node_modules/**/*"
     ],
-    "directories": {
-      "buildResources": "assets"
+	"win": {
+		"icon": "./public/favicon.ico"
+	},
+  "directories": {
+      "buildResources": "public"
     }
   },
   "eslintConfig": {
@@ -57,7 +64,7 @@
   "devDependencies": {
     "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",
-    "electron": "^14.0.0",
+    "electron": "^14.0.1",
     "electron-builder": "^22.11.7",
     "wait-on": "^6.0.0"
   }
