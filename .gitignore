@@ -11,6 +11,9 @@
 # production
 /build
 
+#firebase
+/.firebase/
+
 # distribution
 /dist
 
